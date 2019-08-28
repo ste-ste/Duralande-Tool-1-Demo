@@ -37,22 +37,17 @@
     [class*="col-"] {
         width: 100%;
 		display: block;
-
     }
+
+    .table0 td {
+    display: block;
+  width: 100%;
+  }
+  .table0 th{
+    display: block;
+  width: 100%;
 }
 
-@media only screen and (max-width: 600px) {
-  	.table0 td {
-    display: block;
-	width: 100%;
-  }
-	.table0 th{
-    display: block;
-	width: 100%;
-  }
-
-
-}
 
 /*---------------------------------------------*/
 
