@@ -32,7 +32,27 @@
     display: table;
 }
 
+@media only screen and (max-width: 1000px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+		display: block;
 
+    }
+}
+
+@media only screen and (max-width: 600px) {
+  	.table0 td {
+    display: block;
+	width: 100%;
+  }
+	.table0 th{
+    display: block;
+	width: 100%;
+  }
+
+
+}
 
 /*---------------------------------------------*/
 
@@ -216,20 +236,4 @@ th {
 
 p {
 	display:inline;
-}
-
-@media only screen and (max-width: 1000px) {
-    /* For mobile phones: */
-    [class*="col-"] {
-        width: 100%;
-		display: block;
-    }
-
-    .table0 td {
-    display: block;
-  width: 100%;
-  }
-  .table0 th{
-    display: block;
-  width: 100%;
 }
