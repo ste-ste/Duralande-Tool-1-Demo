@@ -41,6 +41,19 @@
     }
 }
 
+@media only screen and (max-width: 600px) {
+  	#table0 td {
+    display: inline-block;
+	width: 100%;
+  }
+	#table0 th{
+    display: inline-block;
+	width: 100%;
+  }
+
+}
+
+/*---------------------------------------------*/
 
 #img {
 	text-align: center;
