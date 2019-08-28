@@ -23,7 +23,9 @@
 
 [class*="col-"] {
     float: left;
-    padding: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 15px;
 }
 
 .row::after {
