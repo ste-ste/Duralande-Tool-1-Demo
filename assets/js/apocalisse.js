@@ -131,32 +131,12 @@ function printClade () {
 //DEFINIZIONE FENOTIPO
 
 function printFenotipo () {
-	if (pickedClade === 'Enea') {
-		pickedFenotipoUno = pickRandom(fenotipoEnea).name;
-		$("#fenotipoUno").text(pickedFenotipoUno);
-		pickedFenotipoDue = pickRandom(fenotipoEnea).name;
-		$("#fenotipoDue").text(pickedFenotipoDue);
-		pickedFenotipoTre = pickRandom(fenotipoEnea).name;
-		$("#fenotipoTre").text(pickedFenotipoTre);
-	} else if (pickedClade === 'Leonardo') {
-		pickedFenotipoUno = pickRandom(fenotipoMorgana).name;
-		$("#fenotipoUno").text(pickedFenotipoUno);
-		pickedFenotipoDue = pickRandom(fenotipoMorgana).name;
-		$("#fenotipoDue").text(pickedFenotipoDue);
-		pickedFenotipoTre = pickRandom(fenotipoMorgana).name;
-		$("#fenotipoTre").text(pickedFenotipoTre);
-	} else if (pickedClade === 'Morgana') {
-		pickedFenotipoUno = pickRandom(fenotipoLeonardo).name;
-		$("#fenotipoUno").text(pickedFenotipoUno);
-		pickedFenotipoDue = pickRandom(fenotipoLeonardo).name;
-		$("#fenotipoDue").text(pickedFenotipoDue);
-		pickedFenotipoTre = pickRandom(fenotipoLeonardo).name;
-		$("#fenotipoTre").text(pickedFenotipoTre);
-	} else {
-		$("#fenotipoUno").text("");
-		$("#fenotipoDue").text("");
-		$("#fenotipoTre").text("");
-	}
+	pickedFenotipoUno = pickRandom(fenotipo).name;
+	$("#fenotipoUno").text(pickedFenotipoUno);
+	pickedFenotipoDue = pickRandom(fenotipo).name;
+	$("#fenotipoDue").text(pickedFenotipoDue);
+	pickedFenotipoTre = pickRandom(fenotipo).name;
+	$("#fenotipoTre").text(pickedFenotipoTre);
 }
 
 //DEFINIZIONE CARNAGIONE
@@ -863,50 +843,18 @@ function printSessoGenitori () {
 //DEFINIZIONE STATUS GENITORI
 
 function printStatusGenitori () {
-
-	if (pickedClade === 'Enea') {
-		pickedStatusGenitori = pickRandom(statusGenitoreEnea).name;
-		$("#statusGenitore1").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreEnea).name;
-		$("#statusGenitore2").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreEnea).name;
-		$("#statusGenitore3").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreEnea).name;
-		$("#statusGenitore4").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreEnea).name;
-		$("#statusGenitore5").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreEnea).name;
-		$("#statusGenitore6").text(pickedStatusGenitori);
-	} else if (pickedClade === 'Morgana') {
-		pickedStatusGenitori = pickRandom(statusGenitoreMorgana).name;
-		$("#statusGenitore1").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreMorgana).name;
-		$("#statusGenitore2").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreMorgana).name;
-		$("#statusGenitore3").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreMorgana).name;
-		$("#statusGenitore4").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreMorgana).name;
-		$("#statusGenitore5").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreMorgana).name;
-		$("#statusGenitore6").text(pickedStatusGenitori);
-	} else if (pickedClade === 'Leonardo') {
-		pickedStatusGenitori = pickRandom(statusGenitoreLeonardo).name;
-		$("#statusGenitore1").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreLeonardo).name;
-		$("#statusGenitore2").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreLeonardo).name;
-		$("#statusGenitore3").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreLeonardo).name;
-		$("#statusGenitore4").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreLeonardo).name;
-		$("#statusGenitore5").text(pickedStatusGenitori);
-		pickedStatusGenitori = pickRandom(statusGenitoreLeonardo).name;
-		$("#statusGenitore6").text(pickedStatusGenitori);
-	}
-	else {
-		$("#statusGenitore1").text('');
-	}
+	pickedStatusGenitori = pickRandom(statusGenitore).name;
+	$("#statusGenitore1").text(pickedStatusGenitori);
+	pickedStatusGenitori = pickRandom(statusGenitore).name;
+	$("#statusGenitore2").text(pickedStatusGenitori);
+	pickedStatusGenitori = pickRandom(statusGenitore).name;
+	$("#statusGenitore3").text(pickedStatusGenitori);
+	pickedStatusGenitori = pickRandom(statusGenitore).name;
+	$("#statusGenitore4").text(pickedStatusGenitori);
+	pickedStatusGenitori = pickRandom(statusGenitore).name;
+	$("#statusGenitore5").text(pickedStatusGenitori);
+	pickedStatusGenitori = pickRandom(statusGenitore).name;
+	$("#statusGenitore6").text(pickedStatusGenitori);
 }
 
 
@@ -915,19 +863,8 @@ function printStatusGenitori () {
 
 
 function printFratelliSorelle () {
-	if (pickedClade === 'Enea') {
-		pickedFratelliSorelle = pickRandom(fratelliSorelleEnea).name;
-		$("#fratelliSorelle").text(pickedFratelliSorelle);
-	} else if (pickedClade === 'Morgana') {
-		pickedFratelliSorelle = pickRandom(fratelliSorelleMorgana).name;
-		$("#fratelliSorelle").text(pickedFratelliSorelle);
-	} else if (pickedClade === 'Leonardo') {
-		pickedFratelliSorelle = pickRandom(fratelliSorelleLeonardo).name;
-		$("#fratelliSorelle").text(pickedFratelliSorelle);
-	}
-	else {
-		$("#fratelliSorelle").text('');
-	}
+	pickedFratelliSorelle = pickRandom(fratelliSorelle).name;
+	$("#fratelliSorelle").text(pickedFratelliSorelle);
 }
 
 //DEFINIZIONE NOME
