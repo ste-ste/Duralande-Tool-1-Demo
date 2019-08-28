@@ -41,21 +41,7 @@
     }
 }
 
-@media only screen and (max-width: 600px) {
-  	#table0 td {
-    display: block;
-	width: 100%;
-  }
-	#table0 th{
-    display: block;
-	width: 100%;
-  }
 
-  #fixMobile {
-    height: 500px;
-  }
-
-}
 
 /*---------------------------------------------*/
 
@@ -63,7 +49,7 @@
 	text-align: center;
 }
 body {
-	margin: 3%;
+	margin: 50px;
 	background: black;
 	color: #ea00d9;
 	font-family: ubuntu mono;
@@ -239,4 +225,24 @@ th {
 
 p {
 	display:inline;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  	#table0 td {
+    display: block;
+	width: 100%;
+  }
+
+	#table0 th{
+    display: block;
+	width: 100%;
+  }
+
+  body {
+  	margin: 20px;
+    margin-bottom: 200px;
+  }
+
 }
