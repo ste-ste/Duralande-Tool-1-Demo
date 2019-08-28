@@ -75,9 +75,9 @@ $(".fa-plus").click(function () {
 	printEta();
 	printStatura();
 	printAltezza();
-	printInsediamento();
 	printStatus();
 	printClasseSociale();
+	printInsediamento();
 	printMutazioni();
 	printSex();
 	printSessoGenitori();
@@ -712,17 +712,10 @@ function printEta () {
 //DEFINIZIONE INSEDIAMENTO
 
 function printInsediamento () {
-	if (pickedClade === 'Enea') {
-		pickedInsediamento = pickRandom(insediamentoEnea).name;
-		$("#insediamento").text(pickedInsediamento);
-	} else if (pickedClade === 'Morgana') {
-		pickedInsediamento = pickRandom(insediamentoMorgana).name;
-		$("#insediamento").text(pickedInsediamento);
-	} else if (pickedClade === 'Leonardo') {
-		pickedInsediamento = pickRandom(insediamentoLeonardo).name;
-		$("#insediamento").text(pickedInsediamento);
+	if ((pickedClasseSociale === 'Borghesia') || (pickedClasseSociale === 'Classe Dominante')) {
+		$("#insediamento").text('Gae Aulenti');
 	} else {
-		$("#insediamento").text("");
+		$("#insediamento").text("Periferia");
 	}
 }
 
