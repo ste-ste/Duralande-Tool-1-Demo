@@ -26,11 +26,11 @@
     padding: 15px;
 }
 
-/* .row::after {
+.row::after {
     content: "";
     clear: both;
     display: table;
-} */
+}
 
 @media only screen and (max-width: 1000px) {
     /* For mobile phones: */
@@ -41,13 +41,16 @@
     }
 }
 
-@media only screen and (max-width: 1000px) {
-  	#table0 td {
-    display: inline-block;
+@media only screen and (max-width: 600px) {
+  	.table0 td {
+    display: block;
+	width: 100%;
   }
-	#table0 th {
-    display: inline-block;
+	.table0 th{
+    display: block;
+	width: 100%;
   }
+
 
 }
 
@@ -176,16 +179,16 @@ table {
 th {
  white-space: nowrap;
 }
-#table0 {
+.table0 {
 	width: 100%;
 }
 
-#table0 th {
+.table0 th {
 	color: #ea00d9;
 	font-weight: 300;
 }
 
-#table0 td {
+.table0 td {
 	width: 90%;
 }
 
