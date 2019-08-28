@@ -50,6 +50,9 @@
     display: block;
 	width: 100%;
   }
+  #generato {
+    height: 5000px;
+  }
 
 
 }
