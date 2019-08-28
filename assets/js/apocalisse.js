@@ -48,10 +48,7 @@ function pickRandom (obj) {
 //FUNZIONAMENTO PULSANTE
 
 $("#pulsanteGenera").click(function () {
-	$("#generato").slideDown(1000, function() {
-		// $("#pulsanteStampa").fadeIn(0);
-		// $("p").fadeIn(0);
-	});
+	$("#generato").slideDown(1000);
 
 	var toggle = 1;
 
