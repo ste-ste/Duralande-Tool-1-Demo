@@ -41,7 +41,7 @@
     }
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   	#table0 td {
     display: block;
 	width: 100%;
@@ -50,12 +50,8 @@
     display: block;
 	width: 100%;
   }
-  #generato {
-    height: 5000px;
-  }
 
-
-}
+} */
 
 /*---------------------------------------------*/
 
