@@ -45,10 +45,14 @@
   	#table0 td {
     display: block;
 	width: 100%;
-  }	
+  }
 	#table0 th{
     display: block;
 	width: 100%;
+  }
+
+  #fixMobile {
+    height: 500px;
   }
 
 }
