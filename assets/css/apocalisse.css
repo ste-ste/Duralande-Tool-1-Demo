@@ -252,6 +252,7 @@ th {
 
 th, td {
 	vertical-align: top;
+	line-height: 1;
 }
 
 .table0 {
