@@ -334,6 +334,7 @@ th, td {
 
 [data-text]:before {
 	content: attr(data-text);
+	speak: none;
 	display: block;
 	position: absolute;
 	top: 0;
