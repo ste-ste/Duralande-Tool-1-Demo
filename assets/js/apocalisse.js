@@ -30,37 +30,36 @@ var pickedFratelliSorelle;
 var pickedPrimoNome;
 
 
+Array.from(document.getElementsByClassName('titolo'))
+	.forEach(applicareDataText);
+
 //CREAZIONE ARRAY WEIGHTED + PICK RANDOM
 
-function pickRandom (obj) {
+function pickRandom(obj) {
 
 	var weightedArray = [];
 
 	for (var i = 0; i < obj.length; i++) {
-		for (var n = 0; n < obj[i].weight; n++){
+		for (var n = 0; n < obj[i].weight; n++) {
 			weightedArray.push(i);
 		}
 	}
 
-	return(obj[weightedArray[Math.floor(Math.random() * weightedArray.length)]]);
+	return (obj[weightedArray[Math.floor(Math.random() * weightedArray.length)]]);
 }
 
 //FUNZIONAMENTO PULSANTE
-
-$("#pulsanteGenera").click(function () {
-	$("#generato").slideDown(1000);
-
-	var toggle = 1;
-
-$(".fa-plus").click(function () {
-	if (toggle == 1) {
+let isInfoVisible = false;
+$("#infoToggler").click(function () {
+	if (!isInfoVisible) {
 		$(".perChiNarra").fadeIn();
-		toggle = 0;
 	} else {
 		$(".perChiNarra").fadeOut();
-		toggle = 1;
 	}
-	});
+	isInfoVisible = !isInfoVisible;
+});
+$("#pulsanteGenera").click(function () {
+	$("#generato").slideDown(1000);
 
 	printProtoClade();
 	printClade();
@@ -83,7 +82,14 @@ $(".fa-plus").click(function () {
 	printCarte();
 	printPronome();
 	printPrimoNome();
+
+	Array.from(document.getElementsByClassName('testo'))
+		.forEach(applicareDataText);
 });
+
+function applicareDataText(item) {
+	item.setAttribute('data-text', item.innerText);
+}
 
 $("#pulsanteStampa").click(function () {
 	window.print()
@@ -109,14 +115,14 @@ function printCarte() {
 
 //DEFINIZIONE CLADE
 
-function printProtoClade () {
+function printProtoClade() {
 	pickedProtoClade = pickRandom(protoClade).name;
 	$("#protoClade").text(pickedProtoClade);
 }
 
 //DEFINIZIONE PROTOCLADE
 
-function printClade () {
+function printClade() {
 	if (pickedProtoClade === 'Nuova Milano') {
 		pickedClade = pickRandom(cladeNuovaMilano).name;
 		$("#clade").text(pickedClade);
@@ -127,7 +133,7 @@ function printClade () {
 
 //DEFINIZIONE FENOTIPO
 
-function printFenotipo () {
+function printFenotipo() {
 	pickedFenotipoUno = pickRandom(fenotipo).name;
 	$("#fenotipoUno").text(pickedFenotipoUno);
 	pickedFenotipoDue = pickRandom(fenotipo).name;
@@ -138,7 +144,7 @@ function printFenotipo () {
 
 //DEFINIZIONE CARNAGIONE
 
-function printCarnagione () {
+function printCarnagione() {
 	if (pickedFenotipoUno === 'Afroamericano-Afroeuropeo') {
 		pickedCarnagione = pickRandom(carnagioneAfroamericanoAfroeuropeo).name;
 		$("#carnagione").text(pickedCarnagione);
@@ -272,7 +278,7 @@ function printCarnagione () {
 
 //DEFINIZIONE CAPELLI
 
-function printCapelli () {
+function printCapelli() {
 	if (pickedFenotipoDue === 'Afroamericano-Afroeuropeo') {
 		pickedCapelli = pickRandom(capelliAfroamericanoAfroeuropeo).name;
 		$("#capelli").text(pickedCapelli);
@@ -406,7 +412,7 @@ function printCapelli () {
 
 //DEFINIZIONE OCCHI
 
-function printOcchi () {
+function printOcchi() {
 	if (pickedFenotipoTre === 'Afroamericano-Afroeuropeo') {
 		pickedOcchi = pickRandom(occhiAfroamericanoAfroeuropeo).name;
 		$("#occhi").text(pickedOcchi);
@@ -540,8 +546,8 @@ function printOcchi () {
 
 //DEFINIZIONE CORPORATURA
 
-function printCorporatura () {
-	if  (
+function printCorporatura() {
+	if (
 		(pickedFenotipoUno === 'Anglosassone') ||
 		(pickedFenotipoUno === 'Bantu') ||
 		(pickedFenotipoUno === 'Berbero') ||
@@ -572,7 +578,7 @@ function printCorporatura () {
 		(pickedFenotipoUno === 'Pashtun') ||
 		(pickedFenotipoUno === 'Persiano') ||
 		(pickedFenotipoUno === 'Rom Sinti') ||
-		(pickedFenotipoUno === 'Turco-Oghuz'))  {
+		(pickedFenotipoUno === 'Turco-Oghuz')) {
 		pickedCorporatura = pickRandom(corporaturaC).name;
 		$("#corporatura").text(pickedCorporatura);
 
@@ -581,7 +587,7 @@ function printCorporatura () {
 		(pickedFenotipoUno === 'Oromo (Kenya e Etiopia)') ||
 		(pickedFenotipoUno === 'Sahrawi') ||
 		(pickedFenotipoUno === 'Somalo') ||
-		(pickedFenotipoUno === 'Tigrino (Eritrea)'))  {
+		(pickedFenotipoUno === 'Tigrino (Eritrea)')) {
 		pickedCorporatura = pickRandom(corporaturaD).name;
 		$("#corporatura").text(pickedCorporatura);
 
@@ -589,7 +595,7 @@ function printCorporatura () {
 		(pickedFenotipoUno === 'Centroamericano Nativo') ||
 		(pickedFenotipoUno === 'Siberiano') ||
 		(pickedFenotipoUno === 'Sudamericano Nativo') ||
-		(pickedFenotipoUno === 'Uralico'))  {
+		(pickedFenotipoUno === 'Uralico')) {
 		pickedCorporatura = pickRandom(corporaturaE).name;
 		$("#corporatura").text(pickedCorporatura);
 
@@ -603,7 +609,7 @@ function printCorporatura () {
 		(pickedFenotipoUno === 'Thai') ||
 		(pickedFenotipoUno === 'Việt') ||
 		(pickedFenotipoUno === 'Tamil') ||
-		(pickedFenotipoUno === 'Tibeto-Birmano'))  {
+		(pickedFenotipoUno === 'Tibeto-Birmano')) {
 		pickedCorporatura = pickRandom(corporaturaF).name;
 		$("#corporatura").text(pickedCorporatura);
 	} else {
@@ -613,82 +619,82 @@ function printCorporatura () {
 
 //DEFINIZIONE STATURA
 
-function printStatura () {
+function printStatura() {
 	pickedStatura = pickRandom(statura).name;
 	$("#statura").text(pickedStatura);
 }
 
 //DEFINIZIONE ALTEZZA
 
-function printAltezza () {
-	if (pickedStatura === 'Molto Alta')			{pickedAltezza = 186}
-	else if (pickedStatura === 'Alta')			{pickedAltezza = 176}
-	else if (pickedStatura === 'Media')			{pickedAltezza = 166}
-	else if (pickedStatura === 'Bassa')			{pickedAltezza = 156}
-	else if (pickedStatura === 'Molto Bassa')	{pickedAltezza = 146}
+function printAltezza() {
+	if (pickedStatura === 'Molto Alta') { pickedAltezza = 186 }
+	else if (pickedStatura === 'Alta') { pickedAltezza = 176 }
+	else if (pickedStatura === 'Media') { pickedAltezza = 166 }
+	else if (pickedStatura === 'Bassa') { pickedAltezza = 156 }
+	else if (pickedStatura === 'Molto Bassa') { pickedAltezza = 146 }
 
 	// + un numero da 0 a 9
 	pickedAltezza = pickedAltezza + Math.floor(Math.random() * 10);
 	// - 4 per le femmine
-	if (pickedSex === 'Femmina')				{pickedAltezza = pickedAltezza - 4};
-	if (pickedEta === 'Infanzia (8-13)')				{pickedAltezza = pickedAltezza - 40};
-	if (pickedEta === 'Adolescenza (14-20)')				{pickedAltezza = pickedAltezza - 15};
+	if (pickedSex === 'Femmina') { pickedAltezza = pickedAltezza - 4 };
+	if (pickedEta === 'Infanzia (8-13)') { pickedAltezza = pickedAltezza - 40 };
+	if (pickedEta === 'Adolescenza (14-20)') { pickedAltezza = pickedAltezza - 15 };
 
 	//variazioni per clade
-	if (pickedFenotipoUno === 'Afroamericano-Afroeuropeo')					{pickedAltezza = pickedAltezza + 8}
-	else if (pickedFenotipoUno === 'Anglosassone')							{pickedAltezza = pickedAltezza + 0}
-	else if (pickedFenotipoUno === 'Arabo')									{pickedAltezza = pickedAltezza - 2}
-	else if (pickedFenotipoUno === 'Bantu')									{pickedAltezza = pickedAltezza + 1}
-	else if (pickedFenotipoUno === 'Basotho')								{pickedAltezza = pickedAltezza + 0}
-	else if (pickedFenotipoUno === 'Berbero')								{pickedAltezza = pickedAltezza - 1}
-	else if (pickedFenotipoUno === 'Bisaya (Filippine)')					{pickedAltezza = pickedAltezza - 8}
-	else if (pickedFenotipoUno === 'Cafuzo-Lobo-Garifuna')					{pickedAltezza = pickedAltezza + 0}
-	else if (pickedFenotipoUno === 'Centroamericano Nativo')				{pickedAltezza = pickedAltezza - 6}
-	else if (pickedFenotipoUno === 'Creolo')								{pickedAltezza = pickedAltezza + 2}
-	else if (pickedFenotipoUno === 'Curdo-Armeno')							{pickedAltezza = pickedAltezza - 2}
-	else if (pickedFenotipoUno === 'Germanico-Tedesco')						{pickedAltezza = pickedAltezza + 3}
-	else if (pickedFenotipoUno === 'Giapponese')							{pickedAltezza = pickedAltezza - 6}
-	else if (pickedFenotipoUno === 'Franco-Catalano')						{pickedAltezza = pickedAltezza + 0}
-	else if (pickedFenotipoUno === 'Gaelico-Gallego')						{pickedAltezza = pickedAltezza - 2}
-	else if (pickedFenotipoUno === 'Han-Zhuang')							{pickedAltezza = pickedAltezza - 8}
-	else if (pickedFenotipoUno === 'Kazako-Uzbeko')							{pickedAltezza = pickedAltezza - 5}
-	else if (pickedFenotipoUno === 'Lao')									{pickedAltezza = pickedAltezza - 8}
-	else if (pickedFenotipoUno === 'Manciù')								{pickedAltezza = pickedAltezza - 8}
-	else if (pickedFenotipoUno === 'Malese')								{pickedAltezza = pickedAltezza - 8}
-	else if (pickedFenotipoUno === 'Mediterraneo-Anatolico-Semitico')		{pickedAltezza = pickedAltezza - 2}
-	else if (pickedFenotipoUno === 'Oromo (Kenya e Etiopia)')				{pickedAltezza = pickedAltezza - 2}
-	else if (pickedFenotipoUno === 'Pashtun')								{pickedAltezza = pickedAltezza - 3}
-	else if (pickedFenotipoUno === 'Persiano')								{pickedAltezza = pickedAltezza - 3}
-	else if (pickedFenotipoUno === 'Rom Sinti')								{pickedAltezza = pickedAltezza - 2}
-	else if (pickedFenotipoUno === 'Scandinavo')							{pickedAltezza = pickedAltezza + 7}
-	else if (pickedFenotipoUno === 'Sahrawi')								{pickedAltezza = pickedAltezza - 2}
-	else if (pickedFenotipoUno === 'Slavo Occidentale')						{pickedAltezza = pickedAltezza + 4}
-	else if (pickedFenotipoUno === 'Slavo Orientale')						{pickedAltezza = pickedAltezza + 0}
-	else if (pickedFenotipoUno === 'Slavo Meridionale')						{pickedAltezza = pickedAltezza - 2}
-	else if (pickedFenotipoUno === 'Siberiano')								{pickedAltezza = pickedAltezza - 8}
-	else if (pickedFenotipoUno === 'Somalo')								{pickedAltezza = pickedAltezza - 3}
-	else if (pickedFenotipoUno === 'Sudamericano Nativo')					{pickedAltezza = pickedAltezza - 8}
-	else if (pickedFenotipoUno === 'Thai')									{pickedAltezza = pickedAltezza - 6}
-	else if (pickedFenotipoUno === 'Tigrini (Eritrea)')						{pickedAltezza = pickedAltezza - 2}
-	else if (pickedFenotipoUno === 'Việt')									{pickedAltezza = pickedAltezza - 8}
-	else if (pickedFenotipoUno === 'Tamil')									{pickedAltezza = pickedAltezza - 6}
-	else if (pickedFenotipoUno === 'Tibeto-Birmano')						{pickedAltezza = pickedAltezza - 8}
-	else if (pickedFenotipoUno === 'Turco-Oghuz')							{pickedAltezza = pickedAltezza - 2}
-	else if (pickedFenotipoUno === 'Uralico')								{pickedAltezza = pickedAltezza - 8}
-	else if (pickedFenotipoUno === 'Wolof')									{pickedAltezza = pickedAltezza + 8};
+	if (pickedFenotipoUno === 'Afroamericano-Afroeuropeo') { pickedAltezza = pickedAltezza + 8 }
+	else if (pickedFenotipoUno === 'Anglosassone') { pickedAltezza = pickedAltezza + 0 }
+	else if (pickedFenotipoUno === 'Arabo') { pickedAltezza = pickedAltezza - 2 }
+	else if (pickedFenotipoUno === 'Bantu') { pickedAltezza = pickedAltezza + 1 }
+	else if (pickedFenotipoUno === 'Basotho') { pickedAltezza = pickedAltezza + 0 }
+	else if (pickedFenotipoUno === 'Berbero') { pickedAltezza = pickedAltezza - 1 }
+	else if (pickedFenotipoUno === 'Bisaya (Filippine)') { pickedAltezza = pickedAltezza - 8 }
+	else if (pickedFenotipoUno === 'Cafuzo-Lobo-Garifuna') { pickedAltezza = pickedAltezza + 0 }
+	else if (pickedFenotipoUno === 'Centroamericano Nativo') { pickedAltezza = pickedAltezza - 6 }
+	else if (pickedFenotipoUno === 'Creolo') { pickedAltezza = pickedAltezza + 2 }
+	else if (pickedFenotipoUno === 'Curdo-Armeno') { pickedAltezza = pickedAltezza - 2 }
+	else if (pickedFenotipoUno === 'Germanico-Tedesco') { pickedAltezza = pickedAltezza + 3 }
+	else if (pickedFenotipoUno === 'Giapponese') { pickedAltezza = pickedAltezza - 6 }
+	else if (pickedFenotipoUno === 'Franco-Catalano') { pickedAltezza = pickedAltezza + 0 }
+	else if (pickedFenotipoUno === 'Gaelico-Gallego') { pickedAltezza = pickedAltezza - 2 }
+	else if (pickedFenotipoUno === 'Han-Zhuang') { pickedAltezza = pickedAltezza - 8 }
+	else if (pickedFenotipoUno === 'Kazako-Uzbeko') { pickedAltezza = pickedAltezza - 5 }
+	else if (pickedFenotipoUno === 'Lao') { pickedAltezza = pickedAltezza - 8 }
+	else if (pickedFenotipoUno === 'Manciù') { pickedAltezza = pickedAltezza - 8 }
+	else if (pickedFenotipoUno === 'Malese') { pickedAltezza = pickedAltezza - 8 }
+	else if (pickedFenotipoUno === 'Mediterraneo-Anatolico-Semitico') { pickedAltezza = pickedAltezza - 2 }
+	else if (pickedFenotipoUno === 'Oromo (Kenya e Etiopia)') { pickedAltezza = pickedAltezza - 2 }
+	else if (pickedFenotipoUno === 'Pashtun') { pickedAltezza = pickedAltezza - 3 }
+	else if (pickedFenotipoUno === 'Persiano') { pickedAltezza = pickedAltezza - 3 }
+	else if (pickedFenotipoUno === 'Rom Sinti') { pickedAltezza = pickedAltezza - 2 }
+	else if (pickedFenotipoUno === 'Scandinavo') { pickedAltezza = pickedAltezza + 7 }
+	else if (pickedFenotipoUno === 'Sahrawi') { pickedAltezza = pickedAltezza - 2 }
+	else if (pickedFenotipoUno === 'Slavo Occidentale') { pickedAltezza = pickedAltezza + 4 }
+	else if (pickedFenotipoUno === 'Slavo Orientale') { pickedAltezza = pickedAltezza + 0 }
+	else if (pickedFenotipoUno === 'Slavo Meridionale') { pickedAltezza = pickedAltezza - 2 }
+	else if (pickedFenotipoUno === 'Siberiano') { pickedAltezza = pickedAltezza - 8 }
+	else if (pickedFenotipoUno === 'Somalo') { pickedAltezza = pickedAltezza - 3 }
+	else if (pickedFenotipoUno === 'Sudamericano Nativo') { pickedAltezza = pickedAltezza - 8 }
+	else if (pickedFenotipoUno === 'Thai') { pickedAltezza = pickedAltezza - 6 }
+	else if (pickedFenotipoUno === 'Tigrini (Eritrea)') { pickedAltezza = pickedAltezza - 2 }
+	else if (pickedFenotipoUno === 'Việt') { pickedAltezza = pickedAltezza - 8 }
+	else if (pickedFenotipoUno === 'Tamil') { pickedAltezza = pickedAltezza - 6 }
+	else if (pickedFenotipoUno === 'Tibeto-Birmano') { pickedAltezza = pickedAltezza - 8 }
+	else if (pickedFenotipoUno === 'Turco-Oghuz') { pickedAltezza = pickedAltezza - 2 }
+	else if (pickedFenotipoUno === 'Uralico') { pickedAltezza = pickedAltezza - 8 }
+	else if (pickedFenotipoUno === 'Wolof') { pickedAltezza = pickedAltezza + 8 };
 	$("#altezza").text(pickedAltezza);
 }
 
 //DEFINIZIONE ETà
 
-function printEta () {
+function printEta() {
 	pickedEta = pickRandom(eta).name;
 	$("#eta").text(pickedEta);
 }
 
 //DEFINIZIONE INSEDIAMENTO
 
-function printInsediamento () {
+function printInsediamento() {
 	if ((pickedClasseSociale === 'Borghesia') || (pickedClasseSociale === 'Classe Dominante')) {
 		$("#insediamento").text('Gae Aulenti');
 	} else {
@@ -698,26 +704,26 @@ function printInsediamento () {
 
 //DEFINIZIONE STATUS ECONOMICO
 
-function printStatus () {
+function printStatus() {
 	pickedStatus = pickRandom(status1).name;
 	$("#status").text(pickedStatus);
 }
 
 //DEFINIZIONE CLASSE SOCIALE
 
-function printClasseSociale () {
+function printClasseSociale() {
 	pickedClasseSociale = pickRandom(classeSociale1).name;
 	$("#classeSociale").text(pickedClasseSociale);
 }
 
 //DEFINIZIONE MUTAZIONI
 
-function printMutazioni () {
-		mutazione1 = pickRandom(mutazioniLivello1).name;
-		$('#mutazione1').text(mutazione1);
-		$('#mutazione2').text("nope");
-		$('#mutazione3').text("nope");
-		$('#mutazione4').text("nope");
+function printMutazioni() {
+	mutazione1 = pickRandom(mutazioniLivello1).name;
+	$('#mutazione1').text(mutazione1);
+	$('#mutazione2').text("nope");
+	$('#mutazione3').text("nope");
+	$('#mutazione4').text("nope");
 
 	//disturbi gravi
 
@@ -752,7 +758,7 @@ function printMutazioni () {
 
 //DEFINIZIONE SESSO
 
-function printSex () {
+function printSex() {
 
 	if ((mutazione1 === "Ermafrodita") || (mutazione2 === "Ermafrodita") || (mutazione3 === "Ermafrodita") || (mutazione4 === "Ermafrodita")) {
 		pickedAttribuzione = pickRandom(attribuzione).name;
@@ -767,50 +773,50 @@ function printSex () {
 
 //DEFINIZIONE PRONOME
 
-function printPronome () {
-		if ((pickedSex === 'Femmina') || (pickedAttribuzione === 'Attribuita Femmina')) {
-			pickedPronome = 'Femminile'
-			$("#pronome").text(pickedPronome);
-		} else if ((pickedSex === 'Maschio') || (pickedAttribuzione === 'Attribuito Maschio')) {
-			pickedPronome = 'Maschile'
-			$("#pronome").text(pickedPronome);
-		} else {
-			pickedPronome = ''
-			$("#pronome").text(pickedPronome);
-		}
+function printPronome() {
+	if ((pickedSex === 'Femmina') || (pickedAttribuzione === 'Attribuita Femmina')) {
+		pickedPronome = 'Femminile'
+		$("#pronome").text(pickedPronome);
+	} else if ((pickedSex === 'Maschio') || (pickedAttribuzione === 'Attribuito Maschio')) {
+		pickedPronome = 'Maschile'
+		$("#pronome").text(pickedPronome);
+	} else {
+		pickedPronome = ''
+		$("#pronome").text(pickedPronome);
+	}
 }
 
 //DEFINIZIONE SESSO GENITORI
-function printSessoGenitori () {
-		var pickedSessoGenitore1 = pickRandom(sessoGenitore1).name;
-		$("#sessoGenitore1").text(pickedSessoGenitore1);
+function printSessoGenitori() {
+	var pickedSessoGenitore1 = pickRandom(sessoGenitore1).name;
+	$("#sessoGenitore1").text(pickedSessoGenitore1);
 
-		var pickedSessoGenitore2 = pickRandom(sessoGenitore2).name;
-		$("#sessoGenitore2").text(pickedSessoGenitore2);
+	var pickedSessoGenitore2 = pickRandom(sessoGenitore2).name;
+	$("#sessoGenitore2").text(pickedSessoGenitore2);
 
-		var pickedSessoGenitore3 = pickRandom(sessoGenitore3).name;
-		$("#sessoGenitore3").text(pickedSessoGenitore3);
+	var pickedSessoGenitore3 = pickRandom(sessoGenitore3).name;
+	$("#sessoGenitore3").text(pickedSessoGenitore3);
 
-		if (pickedSessoGenitore3 !== 'Falso') {
-			var pickedSessoGenitore4 = pickRandom(sessoGenitore4).name;
-			$("#sessoGenitore4").text(pickedSessoGenitore4);
-		} else {
-			var pickedSessoGenitore4 = 'Falso';
-		}
+	if (pickedSessoGenitore3 !== 'Falso') {
+		var pickedSessoGenitore4 = pickRandom(sessoGenitore4).name;
+		$("#sessoGenitore4").text(pickedSessoGenitore4);
+	} else {
+		var pickedSessoGenitore4 = 'Falso';
+	}
 
-		if (pickedSessoGenitore4 !== 'Falso') {
-			var pickedSessoGenitore5 = pickRandom(sessoGenitore5).name;
-			$("#sessoGenitore5").text(pickedSessoGenitore5);
-		} else {
-			var pickedSessoGenitore5 = 'Falso';
-		}
+	if (pickedSessoGenitore4 !== 'Falso') {
+		var pickedSessoGenitore5 = pickRandom(sessoGenitore5).name;
+		$("#sessoGenitore5").text(pickedSessoGenitore5);
+	} else {
+		var pickedSessoGenitore5 = 'Falso';
+	}
 
-		if (pickedSessoGenitore5 !== 'Falso') {
-			var pickedSessoGenitore6 = pickRandom(sessoGenitore6).name;
-			$("#sessoGenitore6").text(pickedSessoGenitore6);
-		} else {
-			var pickedSessoGenitore6 = 'Falso';
-		}
+	if (pickedSessoGenitore5 !== 'Falso') {
+		var pickedSessoGenitore6 = pickRandom(sessoGenitore6).name;
+		$("#sessoGenitore6").text(pickedSessoGenitore6);
+	} else {
+		var pickedSessoGenitore6 = 'Falso';
+	}
 
 	if (pickedSessoGenitore3 === 'Falso') {
 		$('#casellaGenitore3').fadeOut(0);
@@ -839,7 +845,7 @@ function printSessoGenitori () {
 
 //DEFINIZIONE STATUS GENITORI
 
-function printStatusGenitori () {
+function printStatusGenitori() {
 	pickedStatusGenitori = pickRandom(statusGenitore).name;
 	$("#statusGenitore1").text(pickedStatusGenitori);
 	pickedStatusGenitori = pickRandom(statusGenitore).name;
@@ -859,7 +865,7 @@ function printStatusGenitori () {
 
 
 
-function printFratelliSorelle () {
+function printFratelliSorelle() {
 	pickedFratelliSorelle = pickRandom(fratelliSorelle).name;
 	$("#fratelliSorelle").text(pickedFratelliSorelle);
 }
@@ -867,7 +873,7 @@ function printFratelliSorelle () {
 //DEFINIZIONE NOME
 
 var nomi = [];
-function printPrimoNome () {
+function printPrimoNome() {
 
 	if (pickedPronome === 'Femminile') {
 		nomi = nomi.concat(nome30femminile, nome30femminile, nome30femminile, nome30femminile, nome70femminile);
@@ -878,14 +884,14 @@ function printPrimoNome () {
 		nomi = [];
 		pickedPrimoNome = false;
 
-	} else 	if (pickedPronome === 'Maschile') {
+	} else if (pickedPronome === 'Maschile') {
 		nomi = nomi.concat(nome30maschile, nome30maschile, nome30maschile, nome30maschile, nome70maschile);
 		pickedPrimoNome = nomi[Math.floor(Math.random() * nomi.length)];
 		$("#primoNome").text(pickedPrimoNome);
 
 		nomi = [];
 		pickedPrimoNome = false;
-	}	else {
+	} else {
 		$("#primoNome").text('');
 	}
 }

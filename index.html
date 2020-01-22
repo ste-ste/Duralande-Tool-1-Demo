@@ -1,23 +1,30 @@
 <!doctype html>
-<html>
+<html lang="it">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Duralande Tool 1</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Duralande Tool 1</title>
 	<script type="text/javascript" src="assets/js/lib/jquery-3.3.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="assets/css/apocalisse.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> -->
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
-
 </head>
 
 <body>
 	<div class="row">
-		<div class="col-5" id="img">
-		<img src="assets/img/logo.png" style="width:100%; max-width: 500px;">
+		<div class="col-5">
+			<h1>
+				<img class="logo" alt="Duralande. Tool 1. Demo: Neonasci" src="assets/img/logo.png" />
+			</h1>
 		</div>
 		<div class="col-7">
-			<button id="pulsanteGenera"><em class="fas fa-random"></em> Genera personaggio</button>
+			<button id="pulsanteGenera">
+				<svg class="icon">
+					<use xlink:href="#random"></use>
+				</svg>
+				Genera personaggio</button>
 			<!-- <button id="pulsanteStampa"  style="position: absolute; top: 15px; left:820px;"><i class="fas fa-print"></i>  Salva o stampa</button> -->
 		</div>
 	</div>
@@ -25,183 +32,265 @@
 
 	<div class="row" id="generato" style="display: none">
 		<div class="col-8">
-			<table class="table0">
+			<table class="table0 withUnderscore">
 				<tr>
-					<th>Nome completo<a class="underscore">_</a></th>
-					<td><p1 id="primoNome"></p1> <p2 id="secondoNome"></p2></td>
+					<th class="titolo">Nome completo</th>
+					<td><span class="testo" id="primoNome"></span>
+						<p2 class="testo" id="secondoNome"></p2>
+					</td>
 				</tr>
 				<tr>
-					<th>Clade<a class="underscore">_</a></th>
-					<td id="clade"></td>
+					<th class="titolo">Clade</th>
+					<td class="testo" id="clade"></td>
 				</tr>
 				<tr>
-					<th>Insediamento di nascita<a class="underscore">_</a> &nbsp &nbsp</th>
-					<td id="insediamento"></td>
+					<th class="titolo">Insediamento di nascita</th>
+					<td class="testo" id="insediamento"></td>
 				</tr>
 				<tr>
-					<th>Regione<a class="underscore">_</a></th>
-					<td>Expo</td>
+					<th class="titolo">Regione</th>
+					<td class="testo">Expo</td>
 				</tr>
-					<th class="noHover" colspan = "2"><hr /></th>
-				<tr>
-					<th>Sesso alla Nascita<a class="underscore">_</a></th>
-					<td id="sex"></td>
-				</tr>
-				<tr>
-					<th>Status Economico<a class="underscore">_</a></th>
-					<td id="status"></td>
+				<tr class="noHover">
+					<td colspan="2">
+						<hr />
+					</td>
 				</tr>
 				<tr>
-					<th>Classe Sociale<a class="underscore">_</a></th>
-					<td id="classeSociale"></td>
-				</tr>
-					<th class="noHover" colspan = "2"><hr /></th>
-				<tr>
-					<th>Corporatura<a class="underscore">_</a></th>
-					<td id="corporatura"></td>
+					<th class="titolo">Sesso alla Nascita</th>
+					<td class="testo" id="sex"></td>
 				</tr>
 				<tr>
-					<th>Statura<a class="underscore">_</a></th>
-					<td><p1 id="altezza"></p1>cm</td>
+					<th class="titolo">Status Economico</th>
+					<td class="testo" id="status"></td>
 				</tr>
 				<tr>
-					<th>Carnagione<a class="underscore">_</a></th>
-					<td id="carnagione"></td>
+					<th class="titolo">Classe Sociale</th>
+					<td class="testo" id="classeSociale"></td>
+				</tr>
+				<tr class="noHover">
+					<td colspan="2">
+						<hr />
+					</td>
 				</tr>
 				<tr>
-					<th>Occhi<a class="underscore">_</a></th>
-					<td id="occhi"></td>
+					<th class="titolo">Corporatura</th>
+					<td class="testo" id="corporatura"></td>
 				</tr>
 				<tr>
-					<th>Capelli<a class="underscore">_</a></th>
-					<td id="capelli"></td>
+					<th class="titolo">Statura</th>
+					<td class="testo"><span id="altezza"></span>cm</td>
+				</tr>
+				<tr>
+					<th class="titolo">Carnagione</th>
+					<td class="testo" id="carnagione"></td>
+				</tr>
+				<tr>
+					<th class="titolo">Occhi</th>
+					<td class="testo" id="occhi"></td>
+				</tr>
+				<tr>
+					<th class="titolo">Capelli</th>
+					<td class="testo" id="capelli"></td>
 				</tr>
 			</table>
 			<br>
-			<table class="table0">
+			<table class="table0 withUnderscore">
 				<tr>
-					<th>Mutazioni<a class="underscore">_</a></th>
-					<td><div class="slot cerchio"> &nbsp </div><p1 id="mutazione1"></p1></td>
+					<th class="titolo">Mutazioni</th>
+					<td><span class="slot cerchio"></span><span class="testo" id="mutazione1"></span></td>
 				</tr>
-		</table>
+			</table>
 
 		</div>
 
 
 		<div class="col-4">
 			<table id="table1">
-				<tr>
-					<th class="titoloTabella noHover" colspan = "3">Genitori alla nascita</th>
+				<tr class="noHover">
+					<th class="titolo" colspan="3">Genitori alla nascita</th>
 				</tr>
 				<tr id="casellaGenitore1">
-					<th id="genitore1">Genitore 1</th>
-					<td id="sessoGenitore1">Sesso</td>
-					<td id="statusGenitore1">Status</td>
-			 	</tr>
+					<th class="testo titoloSecondario" id="genitore1">Genitore 1</th>
+					<td class="testo" id="sessoGenitore1">Sesso</td>
+					<td class="testo" id="statusGenitore1">Status</td>
+				</tr>
 				<tr id="casellaGenitore2">
-					<th id="genitore2">Genitore 2</th>
-					<td id="sessoGenitore2">Sesso</td>
-					<td id="statusGenitore2">Status</td>
+					<th class="testo titoloSecondario" id="genitore2">Genitore 2</th>
+					<td class="testo" id="sessoGenitore2">Sesso</td>
+					<td class="testo" id="statusGenitore2">Status</td>
 				</tr>
 				<tr id="casellaGenitore3">
-					<th id="genitore3">Genitore 3</th>
-					<td id="sessoGenitore3">Sesso</td>
-					<td id="statusGenitore3">Status</td>
+					<th class="testo titoloSecondario" id="genitore3">Genitore 3</th>
+					<td class="testo" id="sessoGenitore3">Sesso</td>
+					<td class="testo" id="statusGenitore3">Status</td>
 				</tr>
 				<tr id="casellaGenitore4" style="display:none;">
-					<th id="genitore4">Genitore 4</th>
-					<td id="sessoGenitore4">Sesso</td>
-					<td id="statusGenitore4">Status</td>
+					<th class="testo titoloSecondario" id="genitore4">Genitore 4</th>
+					<td class="testo" id="sessoGenitore4">Sesso</td>
+					<td class="testo" id="statusGenitore4">Status</td>
 				</tr>
 				<tr id="casellaGenitore5" style="display:none;">
-					<th id="genitore5">Genitore 5</th>
-					<td id="sessoGenitore5">Sesso</td>
-					<td id="statusGenitore5">Status</td>
+					<th class="testo titoloSecondario" id="genitore5">Genitore 5</th>
+					<td class="testo" id="sessoGenitore5">Sesso</td>
+					<td class="testo" id="statusGenitore5">Status</td>
 				</tr>
 				<tr id="casellaGenitore6" style="display:none;">
-					<th id="genitore6">Genitore 6</th>
-					<td id="sessoGenitore6">Sesso</td>
-					<td id="statusGenitore6">Status</td>
+					<th class="testo titoloSecondario" id="genitore6">Genitore 6</th>
+					<td class="testo" id="sessoGenitore6">Sesso</td>
+					<td class="testo" id="statusGenitore6">Status</td>
+				</tr>
+				<tr class="noHover">
+					<td colspan="3">
+						<hr />
+					</td>
 				</tr>
 				<tr>
-					<th class="noHover" colspan = "3"><hr /></th>
+					<th class="titolo noHover" colspan="3">Fratelli e Sorelle</th>
 				</tr>
 				<tr>
-					<th class="titoloTabella noHover" colspan = "3">Fratelli e Sorelle</th>
-				</tr>
-				<tr>
-					<th id="fratelliSorelle" colspan = "3"></th>
+					<th class="testo" id="fratelliSorelle" colspan="3"></th>
 				</tr>
 			</table>
 
 			<br>
 
 			<table id="table2">
-				<tr>
-					<th class="titoloTabella noHover" colspan = "3">Eventi dell'Oktagon</th>
+				<tr class="noHover">
+					<th class="titolo" colspan="3">Eventi dell'Oktagon</th>
 				</tr>
 				<tr>
-					<td><p class="titoloTabella">J &#9829  </p><p class="carta" id="fanteCuori"></p></td>
-					<td><p class="titoloTabella">J &#9830  </p><p class="carta" id="fanteQuadri"></p></td>
+					<td>
+						<p class="titolo">J &#9829 </p>
+						<p class="testo carta" id="fanteCuori"></p>
+					</td>
+					<td>
+						<p class="titolo">J &#9830 </p>
+						<p class="testo carta" id="fanteQuadri"></p>
+					</td>
 				</tr>
 				<tr>
-					<td><p class="titoloTabella">Q &#9829  </p><p class="carta" id="donnaCuori"></p></td>
-					<td><p class="titoloTabella">Q &#9830  </p><p class="carta" id="donnaQuadri"></p></td>
+					<td>
+						<p class="titolo">Q &#9829 </p>
+						<p class="testo carta" id="donnaCuori"></p>
+					</td>
+					<td>
+						<p class="titolo">Q &#9830 </p>
+						<p class="testo carta" id="donnaQuadri"></p>
+					</td>
 				</tr>
 				<tr>
-					<td><p class="titoloTabella">K &#9829  </p><p class="carta" id="reCuori"></p></td>
-					<td><p class="titoloTabella">K &#9830  </p><p class="carta" id="reQuadri"></p></td>
+					<td>
+						<p class="titolo">K &#9829 </p>
+						<p class="testo carta" id="reCuori"></p>
+					</td>
+					<td>
+						<p class="titolo">K &#9830 </p>
+						<p class="testo carta" id="reQuadri"></p>
+					</td>
 				</tr>
-				<th class="noHover"><br></th>
-				<tr>
-					<td><p class="titoloTabella">J &#9827  </p><p class="carta" id="fanteFiori"></p></td>
-					<td><p class="titoloTabella">J &#9824  </p><p class="carta" id="fantePicche"></p></td>
+				<tr class="noHover">
+					<td colspan="2">
+						<br />
+					</td>
 				</tr>
 				<tr>
-					<td><p class="titoloTabella">Q &#9827  </p><p class="carta" id="donnaFiori"></p></td>
-					<td><p class="titoloTabella">Q &#9824  </p><p class="carta" id="donnaPicche"></p></td>
+					<td>
+						<p class="titolo">J &#9827 </p>
+						<p class="testo carta" id="fanteFiori"></p>
+					</td>
+					<td>
+						<p class="titolo">J &#9824 </p>
+						<p class="testo carta" id="fantePicche"></p>
+					</td>
 				</tr>
 				<tr>
-					<td><p class="titoloTabella">K &#9827  </p><p class="carta" id="reFiori"></p></td>
-					<td><p class="titoloTabella">K &#9824  </p><p class="carta" id="rePicche"></p></td>
+					<td>
+						<p class="titolo">Q &#9827 </p>
+						<p class="testo carta" id="donnaFiori"></p>
+					</td>
+					<td>
+						<p class="titolo">Q &#9824 </p>
+						<p class="testo carta" id="donnaPicche"></p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p class="titolo">K &#9827 </p>
+						<p class="testo carta" id="reFiori"></p>
+					</td>
+					<td>
+						<p class="titolo">K &#9824 </p>
+						<p class="testo carta" id="rePicche"></p>
+					</td>
 				</tr>
 			</table>
 
 			<br>
 
 			<table id="table3">
-				<tr>
-					<th class="titoloTabella noHover" colspan="2">Info per Chi Narra<i class="fas fa-plus"></i></th>
-				</tr>
-				<tr class="perChiNarra" style="display:none">
-					<th>Fascia di Età</th>
-					<td><p1 id="eta"></p1></td>
-				</tr>
-				<tr   class="perChiNarra" style="display:none">
-					<th>Pronome</th>
-					<td><p1 id="pronome"></p1></td>
-				</tr>
-				<tr  class="perChiNarra" style="display:none">
-					<th class="noHover" colspan = "2"><hr /></th>
-				</tr>
-				<tr class="perChiNarra" style="display:none">
-					<th>Fenotipo 1</th>
-					<td id="fenotipoUno"></td>
-				</tr>
-				<tr class="perChiNarra" style="display:none">
-					<th>Fenotipo 2</th>
-					<td id="fenotipoDue"></td>
-				</tr>
-				<tr class="perChiNarra" style="display:none">
-					<th>Fenotipo 3</th>
-					<td id="fenotipoTre"></td>
-				</tr>
+				<thead>
+					<tr class="noHover">
+						<th class="header-button" colspan="2">
+							<button id="infoToggler" class="flex">Info per Chi Narra<svg class="icon">
+									<use xlink:href="#plus"></use>
+								</svg>
+							</button>
+						</th>
+					</tr>
+				</thead>
+				<tbody class="perChiNarra" style="display:none">
+					<tr>
+						<th class="testo">Fascia di Età</th>
+						<td class="testo" id="eta"></td>
+					</tr>
+					<tr>
+						<th class="testo">Pronome</th>
+						<td class="testo" id="pronome"></td>
+					</tr>
+					<tr class="noHover">
+						<td colspan="2">
+							<hr />
+						</td>
+					</tr>
+					<tr>
+						<th class="testo">Fenotipo 1</th>
+						<td class="testo" id="fenotipoUno"></td>
+					</tr>
+					<tr>
+						<th class="testo">Fenotipo 2</th>
+						<td class="testo" id="fenotipoDue"></td>
+					</tr>
+					<tr>
+						<th class="testo">Fenotipo 3</th>
+						<td class="testo" id="fenotipoTre"></td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 
 	</div>
-
+	<svg class="library" xmlns="http://www.w3.org/2000/svg">
+		<!--
+			Font Awesome by @fontawesome - https://fontawesome.com
+			License - https://fontawesome.com/license (Icons: CC BY 4.0, Code: MIT License)
+			No changes were made
+		-->
+		<symbol id="random" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="random"
+			class="svg-inline--fa fa-random fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+			<path fill="currentColor"
+				d="M504.971 359.029c9.373 9.373 9.373 24.569 0 33.941l-80 79.984c-15.01 15.01-40.971 4.49-40.971-16.971V416h-58.785a12.004 12.004 0 0 1-8.773-3.812l-70.556-75.596 53.333-57.143L352 336h32v-39.981c0-21.438 25.943-31.998 40.971-16.971l80 79.981zM12 176h84l52.781 56.551 53.333-57.143-70.556-75.596A11.999 11.999 0 0 0 122.785 96H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12zm372 0v39.984c0 21.46 25.961 31.98 40.971 16.971l80-79.984c9.373-9.373 9.373-24.569 0-33.941l-80-79.981C409.943 24.021 384 34.582 384 56.019V96h-58.785a12.004 12.004 0 0 0-8.773 3.812L96 336H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h110.785c3.326 0 6.503-1.381 8.773-3.812L352 176h32z">
+			</path>
+		</symbol>
+		<symbol id="plus" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus"
+			class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+			<path fill="currentColor"
+				d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+			</path>
+		</symbol>
+	</svg>
 	<script type="text/javascript" src="assets/js/apocalisse.js"></script>
 	<script type="text/javascript" src="assets/js/nomi.js"></script>
 </body>
+
 </html>
